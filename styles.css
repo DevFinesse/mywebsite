@@ -1,0 +1,165 @@
+/* Minimalistic grey-on-white stylesheet for portfolio */
+:root{
+  --bg: #ffffff;
+  --text: #111827; /* very dark grey */
+  --muted: #6b7280; /* medium grey */
+  --surface: #f8fafc; /* very light grey */
+  --edge: #e6e9ee; /* subtle border */
+  --edge-strong: #cfe4ff; /* subtle blue-tinged line to make dividers stand out */
+  --accent: #374151; /* darker grey for emphasis */
+  --blue: #2563eb; /* small blue accent */
+  --blue-dark: #1e40af; /* slightly richer blue for hover/active */
+  --radius: 8px;
+  --container-width: 980px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.6;  
+}
+
+.container{
+  max-width:var(--container-width);
+  margin:0 auto;
+  padding:28px 20px;
+}
+
+.site-header{
+  border-bottom:1px solid var(--edge-strong);
+  background:linear-gradient(180deg, rgba(0,0,0,0.01), transparent);
+}
+
+.site-header h1{
+  margin:0 0 6px 0;
+  font-size:28px;
+  letter-spacing:-0.2px;
+}
+
+.site-header .handle{
+  font-weight:500;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.subtitle{
+  margin:0 0 10px 0;
+  color:var(--muted);
+  font-size:15px;
+}
+
+.contact{
+  margin:0 0 14px 0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.site-header .btn{
+  display:inline-block;
+  text-decoration:none;
+  padding:10px 14px;
+  background:var(--surface);
+  color:var(--blue);
+  border:1px solid rgba(37,99,235,0.12);
+  border-radius:6px;
+  font-weight:600;
+  font-size:13px;
+}
+
+.site-header .btn:hover{
+  background:#eef6ff; /* subtle blue tint on hover */
+}
+
+main{
+  padding:28px 0 60px;
+}
+
+h2{
+  margin:0 0 12px 0;
+  font-size:20px;
+}
+
+h3{ margin:0 0 6px 0; font-size:16px }
+
+section{
+  margin-bottom:28px;
+}
+
+#about p{max-width:65ch; color:var(--muted)}
+
+.skills-grid{
+  list-style:none;
+  padding:0;
+  margin:12px 0 0 0;
+  display:flex;
+  gap:10px 14px;
+  flex-wrap:wrap;
+}
+
+.skills-grid li{
+  background:var(--surface);
+  color:var(--accent);
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:13px;
+  border:1px solid var(--edge);
+}
+
+.project{
+  padding:16px;
+  background:linear-gradient(180deg, #ffffff, var(--surface));
+  border:1px solid var(--edge-strong);
+  border-radius:var(--radius);
+  margin-bottom:12px;
+  transition:box-shadow .18s ease, border-left-color .18s ease;
+  border-left:4px solid transparent; /* accent line on the left */
+}
+
+.project:hover{
+  box-shadow:0 6px 18px rgba(16,24,40,0.04);
+  border-left-color:var(--blue);
+}
+
+.project p{ color:var(--muted); margin:8px 0 }
+
+.meta{
+  color:var(--muted);
+  font-size:13px;
+}
+
+a{ color:var(--blue); text-decoration:none; font-weight:600; transition:color .14s ease, text-decoration .14s ease; }
+a:hover{ color:var(--blue-dark); text-decoration:underline }
+
+.placeholder{ color:var(--muted); font-style:italic }
+
+.site-footer{
+  border-top:1px solid var(--edge-strong);
+  padding:18px 0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* Responsive tweaks */
+@media (max-width:640px){
+  :root{ --container-width:100% }
+  .site-header .container{ padding:18px 16px }
+  .site-header h1{ font-size:20px }
+  .site-header .btn{ padding:8px 10px; font-size:13px }
+  .container{ padding:18px 16px }
+  .skills-grid{ gap:8px }
+  .project{ padding:12px }
+}
+
+/* Accessibility: focus states */
+a:focus, .site-header .btn:focus{ outline:2px solid rgba(37,99,235,0.12); outline-offset:2px }
+
+/* Small helpers */
+.meta a{ color:inherit }
+
+/* End of stylesheet */
